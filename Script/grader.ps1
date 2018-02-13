@@ -56,7 +56,7 @@ $folderlist | ForEach-Object -Process {
         
         $lablist = Get-ChildItem -Path "$_\*.java" #Create array containing all student-submitted labs
 		$lablist | ForEach-Object -Process { #Compile all student-submitted labs
-            javac $_ 
+            javac $_ *>$null
         }
 
         #Checks if all labs are present. If a lab is missing, the script will copy in a null class file, and will be marked as incorrect later.
